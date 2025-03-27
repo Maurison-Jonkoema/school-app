@@ -13,7 +13,11 @@
     <!-- Voorbeeld van dynamische data -->
     <ul>
         @foreach($courses as $course)
-            <li>{{ $course->name }}</li>
+            <li>
+                <strong>{{ $course->name }}</strong><br>
+                Beschrijving: {{ $course->description }}<br>
+                Gegeven door: {{ $course->teacher->name }} <!-- Toont de naam van de docent -->
+            </li>
         @endforeach
     </ul>
 </body>

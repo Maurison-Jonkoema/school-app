@@ -1,19 +1,24 @@
-<!-- resources/views/teachers/index.blade.php -->
-
+{{-- resources/views/teachers/index.blade.php --}}
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leraren Index</title>
+    <title>Docenten Overzicht</title>
 </head>
 <body>
-    <h1>Welkom op de Leraren Index Pagina!</h1>
-
-    <!-- Voorbeeld van dynamische data van de controller -->
+    <h1>Docenten</h1>
     <ul>
-        @foreach($teachers as $teacher)
-            <li>{{ $teacher->name }}</li>
+        @foreach ($teachers as $teacher)
+            <li>
+                <strong>{{ $teacher->name }}</strong><br>
+                Hobbies: {{ $teacher->hobbies }}<br>
+                Cursussen:
+                <ul>
+                    @foreach ($teacher->courses as $course)
+                        <li>{{ $course->name }}</li>
+                    @endforeach
+                </ul>
+            </li>
         @endforeach
     </ul>
 </body>
